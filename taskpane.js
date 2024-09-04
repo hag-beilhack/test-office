@@ -15,36 +15,6 @@ const StorageManager = {
 };
 
 Office.onReady(() => {
-  // Initialize Fabric UI text fields.
-  const TextFieldElements = document.querySelectorAll(".ms-TextField");
-  for (let i = 0; i < TextFieldElements.length; i++) {
-    new fabric["TextField"](TextFieldElements[i]);
-  }
-
-  // Initialize Fabric UI button that saves a new setting.
-  let button = document.getElementById("saveSetting");
-  new fabric["Button"](button, () => {
-    const name = document.getElementById("setName").value;
-    const value = document.getElementById("setValue").value;
-    StorageManager.setSetting(name, value);
-  });
-
-  //Initialize Fabric UI button that gets a setting value.
-  button = document.getElementById("getSetting");
-  new fabric["Button"](button, () => {
-    const name = document.getElementById("getName").value;
-    const value = StorageManager.getSetting(name);
-    displayStatusMessage("Retrieved setting information KEY: " + name + " VALUE: " + value);
-  });
-
-  // Initialize dropdown with storage options.
-  const DropdownHTMLElements = document.querySelectorAll(".ms-Dropdown");
-  for (let i = 0; i < DropdownHTMLElements.length; ++i) {
-    let Dropdown = new fabric["Dropdown"](DropdownHTMLElements[i]);
-    console.log(Dropdown);
-  }
-  // Configure event handler for when storage options are changed.
-  document.getElementById("storageOptions").onchange = setStorageMode;
 });
 
 /**
